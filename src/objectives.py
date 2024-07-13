@@ -54,6 +54,13 @@ class Combo(Objective):
 
     def __init__(self, protein, encoding):
         fitness_df = pd.read_csv('data/' + protein + '/fitness.csv')
+
+        # filter out the stop codons
+        if "AAs" in fitness_df.columns:
+            fitness_df = fitness_df.rename(columns={"AAs": "Combo"})
+
+        fitness_df = fitness_df[~fitness_df['Combo'].str.contains("\*")]
+
         self.y = torch.tensor(fitness_df['fitness'].values).double()
         self.y = self.y/self.y.max()
             
