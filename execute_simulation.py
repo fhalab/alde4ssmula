@@ -24,7 +24,7 @@ if __name__ == "__main__":
     parser.add_argument("--batch_size", type=int, default=96)
     parser.add_argument("--n_pseudorand_init", type=int, default=96)
     parser.add_argument("--budget", type=int, default=384)
-    parser.add_argument("--output_path", type=str, default='results/5x96_simulations/')
+    parser.add_argument("--output_path", type=str, default='results/384+96+baseline')
     parser.add_argument("--runs", type=int, default=50)
     parser.add_argument("--seed_index", type=int, default=0)
     parser.add_argument("--kernel", type=str, default="RBF", choices=["RBF"])
