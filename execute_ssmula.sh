@@ -13,17 +13,17 @@
 # python generate_domain.py --name=TrpB3I --nsites=3
 # python generate_domain.py --name=TrpB4 --nsites=4
 
-# python execute_simulation.py --n_pseudorand_init=384 --budget=96 --runs=50 --output_path=results/384+96+baseline/
-python execute_simulation.py --n_pseudorand_init=96 --budget=96 --runs=50 --output_path=results/96+96+baseline/
 
-python execute_simulation.py --n_pseudorand_init=24 --budget=96 --runs=50 --output_path=results/24+96+baseline/
-python execute_simulation.py --n_pseudorand_init=48 --budget=96 --runs=50 --output_path=results/48+96+baseline/
-python execute_simulation.py --n_pseudorand_init=192 --budget=96 --runs=50 --output_path=results/192+96+baseline/
-python execute_simulation.py --n_pseudorand_init=288 --budget=96 --runs=50 --output_path=results/288+96+baseline/
-python execute_simulation.py --n_pseudorand_init=480 --budget=96 --runs=50 --output_path=results/480+96+baseline/
-python execute_simulation.py --n_pseudorand_init=576 --budget=96 --runs=50 --output_path=results/576+96+baseline/
-python execute_simulation.py --n_pseudorand_init=960 --budget=96 --runs=50 --output_path=results/960+96+baseline/
-python execute_simulation.py --n_pseudorand_init=1920 --budget=96 --runs=50 --output_path=results/1920+96+baseline/
+python execute_simulation.py --n_pseudorand_init=24 --budget=96 --runs=50 --output_path=results/boosting_24+96/
+python execute_simulation.py --n_pseudorand_init=48 --budget=96 --runs=50 --output_path=results/boosting_48+96/
+python execute_simulation.py --n_pseudorand_init=96 --budget=96 --runs=50 --output_path=results/boosting_96+96/
+python execute_simulation.py --n_pseudorand_init=192 --budget=96 --runs=50 --output_path=results/boosting_192+96/
+python execute_simulation.py --n_pseudorand_init=288 --budget=96 --runs=50 --output_path=results/boosting_288+96/
+python execute_simulation.py --n_pseudorand_init=384 --budget=96 --runs=50 --output_path=results/boosting_384+96/
+python execute_simulation.py --n_pseudorand_init=480 --budget=96 --runs=50 --output_path=results/boosting_480+96/
+python execute_simulation.py --n_pseudorand_init=576 --budget=96 --runs=50 --output_path=results/boosting_576+96/
+python execute_simulation.py --n_pseudorand_init=960 --budget=96 --runs=50 --output_path=results/boosting_960+96/
+python execute_simulation.py --n_pseudorand_init=1920 --budget=96 --runs=50 --output_path=results/boosting_1920+96/
 
 
 # python execute_simulation.py --batch_size=96 --n_pseudorand_init=96 --budget=384 --runs=50 --output_path=results/96+96+384/

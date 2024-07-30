@@ -61,10 +61,19 @@ class Combo(Objective):
 
         fitness_df = fitness_df[~fitness_df['Combo'].str.contains("\*")]
 
+   
         self.y = torch.tensor(fitness_df['fitness'].values).double()
         self.y = self.y/self.y.max()
-            
-        self.X = torch.load('data/' + protein + '/' + encoding + '_x.pt')
+
+        
+        if encoding == 'onehot':
+            all_combos = fitness_df['Combo'].values
+
+            #generate onehot encoding for all combos
+            self.X = torch.reshape(generate_onehot(all_combos), (len(all_combos), -1))
+            torch.save(self.X, 'data/' + protein + '/' + 'onehot_x.pt')
+        else: 
+            self.X = torch.load('data/' + protein + '/' + encoding + '_x.pt')
         
     def objective(self, x: Tensor, noise: Noise = 0.) -> tuple[Tensor, Tensor]:
         qx, qy = utils.query_discrete(self.X, self.y, x)

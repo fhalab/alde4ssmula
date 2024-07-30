@@ -119,7 +119,7 @@ if __name__ == "__main__":
 
                 kernel=args.kernel #kernel must be radial basis function, only applies to GP_BOTORCH and DKL_BOTORCH
                 # for mtype in ["BOOSTING_ENSEMBLE", "GP_BOTORCH", "DNN_ENSEMBLE", "DKL_BOTORCH"]:#
-                for mtype in ["DNN_ENSEMBLE"]:
+                for mtype in ["BOOSTING_ENSEMBLE"]:
                     for acq_fn in ['GREEDY']:
                     # for acq_fn in ['GREEDY', 'UCB', 'TS']:
                         
