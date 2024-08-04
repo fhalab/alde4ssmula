@@ -55,25 +55,22 @@ class Combo(Objective):
     def __init__(self, protein, encoding):
         fitness_df = pd.read_csv('data/' + protein + '/fitness.csv')
 
-        # filter out the stop codons
         if "AAs" in fitness_df.columns:
             fitness_df = fitness_df.rename(columns={"AAs": "Combo"})
 
-        fitness_df = fitness_df[~fitness_df['Combo'].str.contains("\*")]
+        # filter out combos with * in the name
+        fitness_df = fitness_df[~fitness_df['Combo'].str.contains('\*')].copy()
+        all_combos = list(fitness_df['Combo'].values)
+        path = 'data/' + protein + '/'
 
-   
         self.y = torch.tensor(fitness_df['fitness'].values).double()
         self.y = self.y/self.y.max()
-
         
         if encoding == 'onehot':
-            all_combos = fitness_df['Combo'].values
-
-            #generate onehot encoding for all combos
-            self.X = torch.reshape(generate_onehot(all_combos), (len(all_combos), -1))
-            torch.save(self.X, 'data/' + protein + '/' + 'onehot_x.pt')
-        else: 
-            self.X = torch.load('data/' + protein + '/' + encoding + '_x.pt')
+            X = torch.reshape(generate_onehot(all_combos), (len(all_combos), -1))
+            torch.save(X, path + 'onehot_x.pt')
+    
+        self.X = torch.load('data/' + protein + '/' + encoding + '_x.pt')
         
     def objective(self, x: Tensor, noise: Noise = 0.) -> tuple[Tensor, Tensor]:
         qx, qy = utils.query_discrete(self.X, self.y, x)
@@ -93,48 +90,48 @@ class Combo(Objective):
     def get_all_points() -> tuple[Tensor, Tensor]:
         return Combo.get_points()
 
-class Production(Objective):
-    """
-    Class for proposing new sequences to screen in a production campaign, on a combinatorial design space.
-    """
+# class Production(Objective):
+#     """
+#     Class for proposing new sequences to screen in a production campaign, on a combinatorial design space.
+#     """
 
-    def __init__(self, df, name, encoding, obj_col):
-        train_combos = df['Combo'].tolist()
-        self.nsamples = len(train_combos)
-        self.ytrain = df[obj_col].values
-        self.Xtrain = generate_onehot(train_combos)
-        self.Xtrain = torch.reshape(self.Xtrain, (self.Xtrain.shape[0], -1))
+#     def __init__(self, df, name, encoding, obj_col):
+#         train_combos = df['Combo'].tolist()
+#         self.nsamples = len(train_combos)
+#         self.ytrain = df[obj_col].values
+#         self.Xtrain = generate_onehot(train_combos)
+#         self.Xtrain = torch.reshape(self.Xtrain, (self.Xtrain.shape[0], -1))
         
-        assert encoding == 'onehot' #currently only works for onehot encodings, but can be extended to other encodings
-        self.all_combos = list(pd.read_csv('data/' + name + '/all_combos.csv')['Combo'].values)
-        self.train_indices = [self.all_combos.index(combo) for combo in train_combos]
+#         assert encoding == 'onehot' #currently only works for onehot encodings, but can be extended to other encodings
+#         self.all_combos = list(pd.read_csv('data/' + name + '/all_combos.csv')['Combo'].values)
+#         self.train_indices = [self.all_combos.index(combo) for combo in train_combos]
 
-        self.X = torch.load('data/' + name + '/onehot_x.pt')
+#         self.X = torch.load('data/' + name + '/onehot_x.pt')
 
-        #filler array,used to measure regret, does not affect outcome
-        self.y = np.zeros(len(self.all_combos))
+#         #filler array,used to measure regret, does not affect outcome
+#         self.y = np.zeros(len(self.all_combos))
 
-        self.y[self.train_indices] = self.ytrain
-        self.ytrain = torch.tensor(self.ytrain)
-        self.y = torch.tensor(self.y)
-        self.train_indices = torch.tensor(self.train_indices)
+#         self.y[self.train_indices] = self.ytrain
+#         self.ytrain = torch.tensor(self.ytrain)
+#         self.y = torch.tensor(self.y)
+#         self.train_indices = torch.tensor(self.train_indices)
 
-    def objective(self, x: Tensor, noise: Noise = 0.) -> tuple[Tensor, Tensor]:
-        qx, qy = utils.query_discrete(self.X, self.y, x)
-        return qx.double(), qy.double()
+#     def objective(self, x: Tensor, noise: Noise = 0.) -> tuple[Tensor, Tensor]:
+#         qx, qy = utils.query_discrete(self.X, self.y, x)
+#         return qx.double(), qy.double()
 
-    def get_max(self) -> Tensor:
-        return torch.max(self.y).double()
+#     def get_max(self) -> Tensor:
+#         return torch.max(self.y).double()
 
-    def get_domain(self) -> tuple[Tensor, Tensor]:
-        lower, upper = utils.domain_discrete(self.X)
-        return lower.double(), upper.double()
+#     def get_domain(self) -> tuple[Tensor, Tensor]:
+#         lower, upper = utils.domain_discrete(self.X)
+#         return lower.double(), upper.double()
 
-    def get_points(self) -> tuple[Tensor, Tensor]:
-        return self.X.double(), self.y.double()
+#     def get_points(self) -> tuple[Tensor, Tensor]:
+#         return self.X.double(), self.y.double()
 
-    @staticmethod
-    def get_all_points() -> tuple[Tensor, Tensor]:
-        return Production.get_points()
+#     @staticmethod
+#     def get_all_points() -> tuple[Tensor, Tensor]:
+#         return Production.get_points()
     
-ALL_OBJS = [Combo, Production]
+# ALL_OBJS = [Combo, Production]

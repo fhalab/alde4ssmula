@@ -24,12 +24,9 @@ if __name__ == "__main__":
     os.makedirs(path, exist_ok=True)
 
     #generate strings for all combos in the design space
-    df = pd.read_csv(path + 'fitness.csv')
-
-    if "AAs" in df.columns:
-        df = df.rename(columns={"AAs": "Combo"})
-        df = df[~df['Combo'].str.contains("\*")]
-    all_combos = df['Combo'].values
+    all_combos = generate_all_combos(nsites)
+    df = pd.DataFrame(all_combos, columns=['Combo'])
+    df.to_csv(path + 'all_combos.csv', index=False)
 
     #generate onehot encoding for all combos
     X = torch.reshape(generate_onehot(all_combos), (len(all_combos), -1))

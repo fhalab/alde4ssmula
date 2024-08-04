@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections.abc import Callable, Sequence, Mapping
 from dataclasses import dataclass
 
+import os
 import numpy as np
 import torch
 from torch import Tensor
@@ -11,6 +12,7 @@ gpu = torch.cuda.is_available()
 
 Noise = Tensor 
 ObjectiveFunc = Callable[[Tensor], Tensor]
+
 
 @dataclass
 class MapClass(Mapping):

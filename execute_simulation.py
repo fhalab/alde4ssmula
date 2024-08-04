@@ -20,11 +20,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--device", type=str, default="cuda")
     parser.add_argument("--names", type=list, default=["DHFR", "GB1", "ParD2", "ParD3", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I", "TrpB4"])
-    parser.add_argument("--encodings", type=list, default=["onehot"]) # default=["AA", "georgiev", "onehot", "ESM2"])
+    parser.add_argument("--encodings", type=list, default=["onehot"])
     parser.add_argument("--batch_size", type=int, default=96)
     parser.add_argument("--n_pseudorand_init", type=int, default=96)
     parser.add_argument("--budget", type=int, default=384)
-    parser.add_argument("--output_path", type=str, default='results/384+96+baseline')
+    parser.add_argument("--output_path", type=str, default='results/5x96_simulations/')
     parser.add_argument("--runs", type=int, default=50)
     parser.add_argument("--seed_index", type=int, default=0)
     parser.add_argument("--kernel", type=str, default="RBF", choices=["RBF"])
@@ -118,10 +118,8 @@ if __name__ == "__main__":
 
 
                 kernel=args.kernel #kernel must be radial basis function, only applies to GP_BOTORCH and DKL_BOTORCH
-                # for mtype in ["BOOSTING_ENSEMBLE", "GP_BOTORCH", "DNN_ENSEMBLE", "DKL_BOTORCH"]:#
-                for mtype in ["BOOSTING_ENSEMBLE"]:
-                    for acq_fn in ['GREEDY']:
-                    # for acq_fn in ['GREEDY', 'UCB', 'TS']:
+                for mtype in ["BOOSTING_ENSEMBLE", "GP_BOTORCH", "DNN_ENSEMBLE", "DKL_BOTORCH"]:
+                    for acq_fn in ['GREEDY', 'UCB', 'TS']:
                         
                         dropout=args.dropout #dropout rate, only applies to neural networks models (DNN_ENSEMBLE and DKL_BOTORCH)
 
