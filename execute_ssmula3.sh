@@ -1,3 +1,4 @@
+export CUDA_VISIBLE_DEVICES=1
 # python generate_domain.py --name=DHFR --nsites=3
 # python generate_domain.py --name=GB1 --nsites=4
 # python generate_domain.py --name=ParD2 --nsites=3
@@ -42,14 +43,14 @@
 # python execute_simulation.py --n_pseudorand_init=1008 --batch_size=1008 --budget=1008 --runs=50 --output_path=results/2eq_1008/
 
 # # three rounds
-# python execute_simulation.py --n_pseudorand_init=96 --batch_size=96 --budget=192 --runs=50 --output_path=results/3eq_96/
-# python execute_simulation.py --n_pseudorand_init=128 --batch_size=128 --budget=256 --runs=50 --output_path=results/3eq_128/
+python execute_simulation.py --n_pseudorand_init=96 --batch_size=96 --budget=192 --runs=50 --output_path=results/3eq_96/
+python execute_simulation.py --n_pseudorand_init=128 --batch_size=128 --budget=256 --runs=50 --output_path=results/3eq_128/
 
-# python execute_simulation.py --n_pseudorand_init=40 --batch_size=40 --budget=80 --runs=50 --output_path=results/3eq_40/
-# python execute_simulation.py --n_pseudorand_init=48 --batch_size=48 --budget=96 --runs=50 --output_path=results/3eq_48/
-# python execute_simulation.py --n_pseudorand_init=64 --batch_size=64 --budget=128 --runs=50 --output_path=results/3eq_64/
+python execute_simulation.py --n_pseudorand_init=40 --batch_size=40 --budget=80 --runs=50 --output_path=results/3eq_40/
+python execute_simulation.py --n_pseudorand_init=48 --batch_size=48 --budget=96 --runs=50 --output_path=results/3eq_48/
+python execute_simulation.py --n_pseudorand_init=64 --batch_size=64 --budget=128 --runs=50 --output_path=results/3eq_64/
 python execute_simulation.py --n_pseudorand_init=160 --batch_size=160 --budget=320 --runs=50 --output_path=results/3eq_160/
-# python execute_simulation.py --n_pseudorand_init=192 --batch_size=192 --budget=384 --runs=50 --output_path=results/3eq_192/
-# python execute_simulation.py --n_pseudorand_init=224 --batch_size=224 --budget=448 --runs=50 --output_path=results/3eq_224/
-# python execute_simulation.py --n_pseudorand_init=352 --batch_size=352 --budget=704 --runs=50 --output_path=results/3eq_352/
-# python execute_simulation.py --n_pseudorand_init=672 --batch_size=672 --budget=1344 --runs=50 --output_path=results/3eq_672/
+python execute_simulation.py --n_pseudorand_init=192 --batch_size=192 --budget=384 --runs=50 --output_path=results/3eq_192/
+python execute_simulation.py --n_pseudorand_init=224 --batch_size=224 --budget=448 --runs=50 --output_path=results/3eq_224/
+python execute_simulation.py --n_pseudorand_init=352 --batch_size=352 --budget=704 --runs=50 --output_path=results/3eq_352/
+python execute_simulation.py --n_pseudorand_init=672 --batch_size=672 --budget=1344 --runs=50 --output_path=results/3eq_672/

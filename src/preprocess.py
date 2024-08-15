@@ -28,9 +28,17 @@ def checkNgen_folder(folder_path: str) -> str:
     return folder_path
 
 def preprocessing_data(path_pattern: str = 'data_original/*/*.csv') -> None:
+    """
+    A function for cleaning up input data
+    """
     for file_path in glob(path_pattern):
-        output_path = file_path.replace('data_original', 'data')
-        checkNgen_folder(os.path.dirname(output_path))
+        output_path_temp = file_path.replace('data_original', 'data')
+        
+        output_dir = os.path.dirname(output_path_temp)
+        checkNgen_folder(output_dir)
+
+        # replace file name to be fitness
+        output_path = os.path.join(output_dir, "fitness.csv")
 
         df = pd.read_csv(file_path)
         # get rid of rows with * in the name of AAs
