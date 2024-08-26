@@ -204,6 +204,8 @@ def parse_results(res_dirs: str | list[str]):
             "GB1",
             "ParD2",
             "ParD3",
+            "T7_2",
+            "TEV",
             "TrpB3A",
             "TrpB3B",
             "TrpB3C",
@@ -239,6 +241,6 @@ def parse_results(res_dirs: str | list[str]):
         df["Model"] = df["Model"].replace("DNN_ENSEMBLE", "DNN Ensemble")
         df["Model"] = df["Model"].replace("DKL_BOTORCH", "DKL")
         df["Acquisition"] = df["Acquisition"].replace("Random", "GREEDY")
-        df.to_csv(res_dir + "/all_results.csv", index=False)
+        df.to_csv(res_dir + "/all_results_2.csv", index=False)
 
         del df

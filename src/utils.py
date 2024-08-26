@@ -5,6 +5,7 @@ from dataclasses import dataclass
 
 import os
 import numpy as np
+import pandas as pd
 import torch
 from torch import Tensor
 
@@ -28,13 +29,44 @@ class MapClass(Mapping):
     def __len__(self):
         return len(self.__dict__)
 
-def samp_discrete(n: int, objective: Objective, seed: int, 
-                  rng: np.random.Generator | None = None
-                  ) -> tuple[torch.Tensor, torch.Tensor]:
+
+def samp_discrete(
+    n: int,
+    objective: Objective,
+    seed: int,
+    rng: np.random.Generator | None = None,
+    zs: str = "none",
+    ft_frac: float | None = None,
+    zs_csv_path: str = "/disk2/fli/SSMuLA/results/zs_comb_5/none/scale2max/all",
+    alde_csv_path: str = "/disk2/fli/alde4ssmula/data",
+) -> tuple[torch.Tensor, torch.Tensor]:
+
     X, y = objective.get_points()
     if rng is None:
         rng = np.random.default_rng(seed)
-    inds = np.sort(rng.choice(len(X), size=n))
+
+    if zs == "none":
+        inds = np.sort(rng.choice(len(X), size=n))
+    else:
+        zs_df = pd.read_csv(zs_csv_path)
+        # set AA column as index
+        if "AAs" in zs_df.columns:
+            zs_df = zs_df.set_index("AAs")
+        elif "Combo" in zs_df.columns:
+            zs_df = zs_df.set_index("Combo")
+        else:
+            raise ValueError("No column named AAs or Combos in the zs_df")
+
+        # select the top ft_frac of the data
+        ft_df = zs_df.sort_values(by=f"{zs}_rank", ascending=True)[
+            : int(ft_frac * len(zs_df))
+        ]
+        # get the indices of the selected data
+        random_indices = rng.choice(ft_df.index, size=n, replace=False)
+
+        alde_df = pd.read_csv(alde_csv_path)
+        inds = alde_df[alde_df["Combo"].isin(random_indices)].index
+
     return X[inds], y[inds], torch.tensor(inds)
 
 
@@ -64,6 +96,7 @@ def query_discrete(X: Tensor, y: Tensor, x: Tensor) -> tuple[Tensor, Tensor]:
     dists = torch.linalg.norm(X - x, ord=1, dim=1)
     closest = dists.argmin()
     return X[closest], y[closest]
+
 
 def get_closest_discrete(X, num, x):
     """Returns closest n points."""
