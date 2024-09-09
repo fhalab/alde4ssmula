@@ -9,10 +9,10 @@ from src.analysis import parse_results
 if __name__ == "__main__":
     # parse_results("results/coves_*")
     # parse_results("results/esmif_*")
-    # parse_results("results/ev_*")
+    parse_results("results/ev_*")
     # parse_results("results/ed_*")
-    parse_results("results/Triad_*")
-    parse_results("results/esm_*")
+    # parse_results("results/Triad_*")
+    # parse_results("results/esm_*")
     # parse_results("results/all_*")
     # parse_results("results/4eq_*")
     # parse_results("results/3eq_*")

@@ -20,7 +20,7 @@ separate processes.
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--device", type=str, default="cuda")
-    parser.add_argument("--names", type=list, default=["DHFR", "GB1", "ParD2", "ParD3", "T7", "TEV", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I", "TrpB4"])
+    parser.add_argument("--names", type=list, default=["T7", "TEV"])
     parser.add_argument("--encodings", type=list, default=["onehot"])
     parser.add_argument("--zs", type=str, default="none")
     parser.add_argument("--ft_frac", type=float, default=0.125)
