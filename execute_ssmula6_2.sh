@@ -46,6 +46,17 @@ python execute_simulation.py --zs=ev --n_pseudorand_init=352 --batch_size=352 --
 python execute_simulation.py --zs=ev --n_pseudorand_init=672 --batch_size=672 --budget=1344 --runs=50 --output_path=results/ev_3eq_672/
 
 
+python execute_simulation.py --zs=ev --n_pseudorand_init=60 --batch_size=60 --budget=60 --runs=50 --output_path=results/ev_2eq_60/
+python execute_simulation.py --zs=ev --n_pseudorand_init=72 --batch_size=72 --budget=72 --runs=50 --output_path=results/ev_2eq_72/
+python execute_simulation.py --zs=ev --n_pseudorand_init=96 --batch_size=96 --budget=96 --runs=50 --output_path=results/ev_2eq_96/
+python execute_simulation.py --zs=ev --n_pseudorand_init=144 --batch_size=144 --budget=144 --runs=50 --output_path=results/ev_2eq_144/
+python execute_simulation.py --zs=ev --n_pseudorand_init=192 --batch_size=192 --budget=192 --runs=50 --output_path=results/ev_2eq_192/
+python execute_simulation.py --zs=ev --n_pseudorand_init=288 --batch_size=288 --budget=288 --runs=50 --output_path=results/ev_2eq_288/
+python execute_simulation.py --zs=ev --n_pseudorand_init=336 --batch_size=336 --budget=336 --runs=50 --output_path=results/ev_2eq_336/
+python execute_simulation.py --zs=ev --n_pseudorand_init=528 --batch_size=528 --budget=528 --runs=50 --output_path=results/ev_2eq_528/
+python execute_simulation.py --zs=ev --n_pseudorand_init=1008 --batch_size=1008 --budget=1008 --runs=50 --output_path=results/ev_2eq_1008/
+
+
 
 # four rounds
 # python execute_simulation.py --zs=ev --n_pseudorand_init=96 --batch_size=96 --budget=288 --runs=50 --output_path=results/ev_4eq_96/
