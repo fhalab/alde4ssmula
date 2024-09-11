@@ -68,6 +68,7 @@ python execute_simulation.py --zs=esm --n_pseudorand_init=336 --batch_size=336 -
 python execute_simulation.py --zs=esm --n_pseudorand_init=528 --batch_size=528 --budget=528 --runs=50 --output_path=results/esm_2eq_528/
 python execute_simulation.py --zs=esm --n_pseudorand_init=1008 --batch_size=1008 --budget=1008 --runs=50 --output_path=results/esm_2eq_1008/
 
+python execute_simulation.py --zs=esm --n_pseudorand_init=240 --batch_size=240 --budget=240 --runs=50 --output_path=results/esm_2eq_240/
 
 
 # python execute_simulation.py --zs=esm --n_pseudorand_init=96 --batch_size=96 --budget=288 --runs=50 --output_path=results/esm_4eq_96/

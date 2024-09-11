@@ -61,8 +61,14 @@ def samp_discrete(
         ft_df = zs_df.sort_values(by=f"{zs}_rank", ascending=True)[
             : int(ft_frac * len(zs_df))
         ]
-        # get the indices of the selected data
-        random_indices = rng.choice(ft_df.index, size=n, replace=False)
+
+        if n > len(ft_df):
+            # get the indices of the selected data
+            random_indices = rng.choice(ft_df.index, size=len(ft_df), replace=False)
+
+        else:
+            # get the indices of the selected data
+            random_indices = rng.choice(ft_df.index, size=n, replace=False)
 
         alde_df = pd.read_csv(alde_csv_path)
         inds = alde_df[alde_df["Combo"].isin(random_indices)].index

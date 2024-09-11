@@ -61,3 +61,4 @@ python execute_simulation.py --zs=ev --n_pseudorand_init=168 --batch_size=168 --
 python execute_simulation.py --zs=ev --n_pseudorand_init=264 --batch_size=264 --budget=792 --runs=50 --output_path=results/ev_4eq_264/
 python execute_simulation.py --zs=ev --n_pseudorand_init=504 --batch_size=504 --budget=1512 --runs=50 --output_path=results/ev_4eq_504/
 
+python execute_simulation.py --zs=ev --n_pseudorand_init=240 --batch_size=240 --budget=240 --runs=50 --output_path=results/ev_2eq_240/

@@ -7,12 +7,12 @@ from __future__ import annotations
 from src.analysis import parse_results
 
 if __name__ == "__main__":
-    parse_results(["results/coves_3eq_40", "results/coves_3eq_48", "results/coves_3eq_64", "results/coves_3eq_96", "results/coves_3eq_128", "results/coves_3eq_160", "results/coves_3eq_192"])
-    parse_results(["results/ed_3eq_40", "results/ed_3eq_48", "results/ed_3eq_64", "results/ed_3eq_96", "results/ed_3eq_128", "results/ed_3eq_160"])
-    parse_results(["results/esm_3eq_40", "results/esm_3eq_48", "results/esm_3eq_64", "results/esm_3eq_96", "results/esm_3eq_128", "results/esm_3eq_160"])
-    parse_results(["results/esmif_3eq_40", "results/esmif_3eq_48", "results/esmif_3eq_64", "results/esmif_3eq_96", "results/esmif_3eq_128", "results/esmif_3eq_160"])
-    parse_results(["results/ev_3eq_40", "results/ev_3eq_48", "results/ev_3eq_64", "results/ev_3eq_96", "results/ev_3eq_128", "results/ev_3eq_160"])
-    parse_results(["results/Triad_3eq_40", "results/Triad_3eq_48", "results/Triad_3eq_64", "results/Triad_3eq_96", "results/Triad_3eq_128", "results/Triad_3eq_160", "results/Triad_3eq_192"])
+    parse_results(["results/coves_3eq_192", "results/coves_3eq_224", "results/coves_3eq_352", "results/coves_3eq_672"])
+    parse_results(["results/ed_3eq_192", "results/ed_3eq_224", "results/ed_3eq_352", "results/ed_3eq_672"])
+    parse_results(["results/esm_3eq_192", "results/esm_3eq_224", "results/esm_3eq_352", "results/esm_3eq_672"])
+    parse_results(["results/esmif_3eq_192", "results/esmif_3eq_224", "results/esmif_3eq_352", "results/esmif_3eq_672"])
+    parse_results(["results/ev_4eq_192", "results/ev_4eq_224", "results/ev_4eq_352", "results/ev_4eq_672"])
+    parse_results(["results/Triad_3eq_224", "results/Triad_3eq_352", "results/Triad_3eq_672"])
     # parse_results("results/coves_*")
     # parse_results("results/esmif_*")
     # parse_results("results/ev_4eq_*")
