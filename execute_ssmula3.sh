@@ -77,7 +77,7 @@ export CUDA_VISIBLE_DEVICES=1
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=288 --batch_size=288 --budget=288 --runs=50 --output_path=results/Triad_2eq_288/
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=336 --batch_size=336 --budget=336 --runs=50 --output_path=results/Triad_2eq_336/
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=528 --batch_size=528 --budget=528 --runs=50 --output_path=results/Triad_2eq_528/
-python execute_simulation.py --zs=Triad --n_pseudorand_init=1008 --batch_size=1008 --budget=1008 --runs=50 --output_path=results/Triad_2eq_1008/
+# python execute_simulation.py --zs=Triad --n_pseudorand_init=1008 --batch_size=1008 --budget=1008 --runs=50 --output_path=results/Triad_2eq_1008/
 
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=240 --batch_size=240 --budget=240 --runs=50 --output_path=results/Triad_2eq_240/
 
@@ -94,3 +94,13 @@ python execute_simulation.py --zs=Triad --n_pseudorand_init=1008 --batch_size=10
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=168 --batch_size=168 --budget=504 --runs=50 --output_path=results/Triad_4eq_168/
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=264 --batch_size=264 --budget=792 --runs=50 --output_path=results/Triad_4eq_264/
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=504 --batch_size=504 --budget=1512 --runs=50 --output_path=results/Triad_4eq_504/
+
+
+# python execute_simulation.py --zs=Triad --n_pseudorand_init=240 --batch_size=240 --budget=240 --runs=50 --output_path=results/ds-Triad_2eq_240/
+# python execute_simulation.py --zs=Triad --n_pseudorand_init=160 --batch_size=160 --budget=320 --runs=50 --output_path=results/ds-Triad_3eq_160/
+# python execute_simulation.py --zs=Triad --n_pseudorand_init=120 --batch_size=120 --budget=360 --runs=50 --output_path=results/ds-Triad_4eq_120/
+
+
+python execute_simulation.py --zs=Triad --n_pseudorand_init=96 --batch_size=96 --budget=96 --runs=50 --output_path=results/ds-Triad_2eq_96/
+python execute_simulation.py --zs=Triad --n_pseudorand_init=64 --batch_size=64 --budget=128 --runs=50 --output_path=results/ds-Triad_3eq_64/
+python execute_simulation.py --zs=Triad --n_pseudorand_init=48 --batch_size=48 --budget=144 --runs=50 --output_path=results/ds-Triad_4eq_48/
