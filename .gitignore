@@ -1,12 +1,9 @@
 # adtl
 results/
-analysis/figs/
-old_runs/
-archived/
+analysis/
 data/
 data_original/
-production_utils/
-analysis/ParPgb/
+sandbox/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

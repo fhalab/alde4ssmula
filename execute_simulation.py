@@ -20,7 +20,7 @@ separate processes.
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--device", type=str, default="cuda")
-    parser.add_argument("--names", type=list, default=["DHFR", "GB1", "ParD2", "ParD3", "TEV", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I", "TrpB4", "T7"])
+    parser.add_argument("--names", type=list, default=["DHFR", "GB1", "ParD2", "ParD3", "T7", "TEV", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I", "TrpB4"])
     parser.add_argument("--encodings", type=list, default=["onehot"])
     parser.add_argument("--zs", type=str, default="none")
     parser.add_argument("--ft_frac", type=float, default=0.125)
@@ -35,7 +35,7 @@ if __name__ == "__main__":
     parser.add_argument("--batch_size", type=int, default=96)
     parser.add_argument("--n_pseudorand_init", type=int, default=96)
     parser.add_argument("--budget", type=int, default=384)
-    parser.add_argument("--output_path", type=str, default="results/5x96_simulations/")
+    parser.add_argument("--output_path", type=str, default="results/")
     parser.add_argument("--runs", type=int, default=50)
     parser.add_argument("--seed_index", type=int, default=0)
     parser.add_argument("--kernel", type=str, default="RBF", choices=["RBF"])
@@ -55,7 +55,6 @@ if __name__ == "__main__":
 
     warnings.filterwarnings("ignore")
 
-    # 8 different objectives (2 datasets, each with 4 encodings)
     for protein in args.names:
         for encoding in args.encodings:
             device = args.device
@@ -156,16 +155,6 @@ if __name__ == "__main__":
                 else:
                     rand_indices = start_indices
 
-                # temp = []
-                # for n in range(budget + 96 + 1):
-                #     m = torch.max(randy[:n + n_pseudorand_init])
-                #     reg = torch.reshape(torch.abs(ymax - m), (1, -1))
-                #     temp.append(reg)
-                # tc = torch.cat(temp, 0)
-                # tc = torch.reshape(tc, (1, -1))
-                # torch.save(tc, subdir + 'Random_' + str(r + 1) + 'regret.pt')
-                # torch.save(randy, subdir + 'Random_' + str(r + 1) + 'y.pt')
-
                 torch.save(rand_indices, subdir + "Random_" + str(r + 1) + "indices.pt")
                 print("Random search done.")
 
@@ -174,12 +163,9 @@ if __name__ == "__main__":
                 )  # kernel must be radial basis function, only applies to GP_BOTORCH and DKL_BOTORCH
                 for mtype in [
                     "BOOSTING_ENSEMBLE",
-                    # "GP_BOTORCH",
                     "DNN_ENSEMBLE",
-                    # "DKL_BOTORCH",
                 ]:
                     for acq_fn in ["GREEDY"]:
-                    # for acq_fn in ["GREEDY", "UCB", "TS"]:
 
                         dropout = (
                             args.dropout

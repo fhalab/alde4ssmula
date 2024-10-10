@@ -1,88 +1,68 @@
-# ALDE
-![image](figs/ALDE_workflow.png)
-Active Learning-assisted Directed Evolution (ALDE) is a package for simulating and performing active learning on combinatorial site-saturation libraries for protein engineering.
+# ALDE4SSMuLA
+* ALDE simulation runs for [SSMuLA](https://github.com/fhalab/SSMuLA) (Site Saturation Mutagenesis Landscape Analysis), the code base for `Evaluation of Machine Learning-Assisted Directed Evolution Across Diverse Combinatorial Landscapes`
+* Modified from [the original ALDE repo](https://github.com/jsunn-y/ALDE)
+* Follow the instructions for simulation runs with the `alde.yml` environment
 
 ## Installation
-To download, clone this repository
+* To download, clone this repository (or alternatively, follow the original ALDE repo instructions)
 ```
-git clone https://github.com/jsunn-y/ALDE.git
+git clone https://github.com/fhalab/alde4ssmula
 ```
-To run ALDE, the relevant anaconda environment can be installed from `alde.yml`. To build this environment, run
+To run ALDE, the relevant anaconda environment can be installed from `alde.yml`. To build this environment, run:
 ```
-cd ./ALDE
+cd ./alde4ssmula
 mkdir results
 conda env create -f alde.yml
 conda activate ALDE
 ```
-The encodings and fitness data used in our study can be downloaded from [here](https://zenodo.org/records/12196802), and should be unzipped to replace the empty `data` folder. If you are using your own training data, you can skip this download.
 
-## Production Runs
-Production runs should be used for a wet-lab ALDE campaign. It can also be used to reproduce the results from the protoglobin (ParPgb) wet-lab ALDE campaign demonstrated in our study.
+## Preprocess data
+* To propess SSMuLA data for ALDE and ensure no stop codon is included, run:
+```
+python execute_preprocess.py
+```
+* Input files follow the patern `data_original/*/*.csv`, i.e., `data_original/GB1/GB1.csv`
+* Output files are saved in `data/*/*.csv`, i.e., `data/GB1/fitness.csv` which includes the columns `Combo` and `fitness`
+* Alternatively, prepare input data for `ALDE` with column `Combo` and `fitness`
 
-First generate the design space (all variants and encodings to search across) for the combinatorial library by specifying `nsites` (number of residues being simultanesouly mutated) and `name` (name of the project) within `generate_domain.py`. Scripts for the protoglobin wet-lab campaign in our study are given as an example. Then run the script:
+## Simulation runs for SSMuLA
+* All simulation runs are based on `execute_simulation.py`
+* Update `--zs_folder` for the correct path to the ZS predictor and `--alde_folder` for the correct path to the ALDE data
+* To run default ALDE without focused training, execute:
 ```
-python generate_domain.py --name=ParPgb --nsites=5
+execute_rounds.sh
 ```
-Outputs from `generate_domain.py` will appear in the folder `/data/{name}`. The two outputs are `all_combos.csv`, which contains the order of the combos in the design space (domain) as strings and `onehot_x.pt`, which is a torch tensor containing the respective onehot encodings in the same order as the list of combos. For a given ALDE campaign, generating the domain only needs to be executed once. Afterward, training data should be uploaded into that folder as `fitness.csv`, where a 'Combo' column specifies the protein sequence at the mutated residues and a separate column specifies the respective fitness value. Note that unseen labels in the domain are filled in as 0 values as placeholders, so the calculated regret is meaningless for the production runs.
-
-For every round of training and prediction, ALDE can be executed using the following command:
+* To run ALDE with focused training (including different rounds), execute:
 ```
-python execute_production.py --name=ParPgb \
---data_csv=fitness_round1_training.csv \
---obj_col=Diff \
---output_path=results/ParPgb_production/round1/ \
---batch_size=90 \
---seed_index=0
+execute_ssmula_ft.sh
 ```
-Within the argparser, `name` must be specified to correspond to the relevant data folder. The data should be loaded as a dataframe from `/data/{name}/{data_csv}` containing sequences and their corresponding fitness values. `obj_col` should specify the column containing fitness values to be optimized. In this csv, the sequence column should be labeled as 'Combo'. By default, predictions will be made using onehot encodings, for 4 different models and 3 different acquisition functions. The `path` variable should be updated to where the results will be saved. `batch_size` specifies the number of samples to query for the next round of screening. Script for the protoglobin wet-lab campaign in our study is given as an example.
-
-## Simulation Runs
-<! The results fromt the presaved simulation runs in our study can be uploaded to `/results` from [here](link).
-To reproduce the computational simulations on complete landscapes (GB1 and TrpB) from our study:
+* To run ALDE with focused training with Hamming distance ensemble (cutoff equals to 2, including different rounds), execute:
 ```
-python execute_simulation.py
-```
-ALDE will be simulated for 2 combinatorially complete datasets, 4 encodings, 3 models, and 3 acquisition functions, as outlined in our study.
-
-To reproduce the baseline with a single round of ALDE, run the following command:
-```
-python execute_simulation.py --n_pseudorand_init=384 --budget=96 --output_path=results/384+96+baseline
+execute_ssmula_dsft.sh
 ```
 
-## Results Files
-The general format for results file prefix is: `{model name}-DO-{dropout rate}-{kernel}-{acquisition function}-{end layer dimensions of architecture}_{index for the random seed}`. Different encodings and datasets will be organized in separate folders. Each ALDE campaign (for a given encoding, model, and acquisition function in the prefix) will produce the following results files as torch tensors:
-
-| File Suffix | Description | 
-|:-----------|:----------------:|
-| `indices.pt` | One output for the campaign. The indices for the queried protein sequences, which can be referenced by the order given in the fitness dataframes: `_fitness.csv` file for simulation runs, or by the `all_combos.csv` file for production runs|
-| `_{n}mu.pt` | Posterior mean values from the model, for all samples in the design space. Outputted each time a model has been trained in the campaign, where n indicates the number of queried samples used to train the model. Used during anlysis of uncertainty quantification. For the production runs, only the samples from the training set are valid.|
-| `_{n}sigma.pt` | Posterior standard deviation values from the model, for all samples in the design space. Outputted each time a model has been trained in the campaign, where n indicates the number of queried samples used to train the model. Used during anlysis of uncertainty quantification. For the production runs, only the samples from the training set are valid. |
-
-## Tuning the execution script
-We recommend running the scripts with default parameters to reproduce to results from our study. However, the following variables can be tuned in the execution script.
-
-| Variable| Default Value | Description | 
-|:-----------|:-------:|:----------------:|
-| protein | GB1 |defines the design objective: the dataset and labels to use: supports 'GB1' or 'TrpB' for simulation runs| 
-| encoding | onehot |defines how the protein sequences are featurized: supports 'AAindex', 'onehot', 'georgiev', or 'ESM2' for simulation runs| 
-| batch size | 96 | number of samples to query in each round of active learning |
-| n_pseudorand_init | 96 | number of initial random samples | 
-| budget | 384 | number of total samples to query, not including the initial random samples | 
-| path | results/5x96_simulations/ | path to save results |
-| runs | 70 | number of times to repeat the simulation from random initialization |
-| index | 0 | index of the first run, which determines which seeds are used from rndseed.txt |
-| kernel | RBF | the kernel for models with GPs, only supports radial basis function (RBF) |
-| mtype | DNN_ENSEMBLE | model tpye: supports one of 'BOOSTING_ENSEMBLE', 'GP_BOTORCH', 'DNN_ENSEMBLE', and 'DKL_BOTORCH,' which is an ensemble of boosting models, a Gaussian process, an ensemble of neural networks, and a deep kernel, respectively|
-| acq_fn | GREEDY | acquisition function: supports of 'GREEDY', 'UCB', and 'TS,' which are greedy, upper confidence bound, and thompson sampling, respectively|
-| lr | 0.001 | learning rate, which affects the training of all models except 'BOOSTING_ENSEMBLE' |
-| num_simult_jobs | 1 | number of simulations to perform simultaneously, for multiprocessing |
-| arc | [encoding_dim, 30, 30, 1] | architecture of the model, where the first element is the encoding dimension, middle elements are hidden layer sizes, and the final layer is size 1. BOOSTING_ENSEMBLE and GP_BOTORCH do not have hidden layers|
-| fname |  | filename for saving results, autogenerated |
-| xi | 4 | $\xi$ term, only applies to upper confidence bound |
-| dropout | 0 | training dropout rate |
-| mcdrouput | 0 | test time dropout rate, not currently supported  |
-| train_iter | 300 | number of iterations for training, which affects the training of all models except 'BOOSTING_ENSEMBLE'  |
-| verbose | 2 | how much to report to the terminal  |
+## Results files
+* Each run should be creating a subfolder in the `results` directory, with the following structure:
+```
+results/
+    experiment_name/
+        landscape_name/
+            onehot/
+                {model name}-DO-{dropout rate}-{kernel}-{acquisition function}-{end layer dimensions of architecture}_{index for the random seed}/
+                    indices.pt
+                    _mu.pt
+                    _sigma.pt
+```
+* Example subfolder
+    * `results/coves_4eq_120` means COVES ZS predictor, four round ALDE, each with sample size of 120
+    * `results/ds-esmif_2eq_240` means Hamming distance (with a cutoff equals to 2) ESMIF ensemble ZS predictor, two round ALDE, each with sample size of 240
+* Each of the result file is in the format of `{model name}-DO-{dropout rate}-{kernel}-{acquisition function}-{end layer dimensions of architecture}_{index for the random seed}`
+* The results are saved in the format of `indices.pt`, `_mu.pt`, `_sigma.pt` for each of the simulation runs with more detailed description in the original [ALDE repo](https://github.com/jsunn-y/ALDE)
 
 ## Analysis
-The raw outputs from the ALDE simulations can be summarized into a dataframe using `analysis/tabulate_results.ipynb`. Afterward, example visualizations of the results can be performed with `analysis/visualization.ipynb`.
+* To analyze the all results from the simulation runs, run the following script:
+```
+python execute_analysis.py
+```
+* The output files will be saved in each of the experiemntal subfolder (i.e.) which will then be used in SSMuLA for further analysis
+* The aggregated results can be found [here](10.5281/zenodo.13910506)
