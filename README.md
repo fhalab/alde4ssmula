@@ -65,4 +65,14 @@ results/
 python execute_analysis.py
 ```
 * The output files will be saved in each of the experiemntal subfolder (i.e.) which will then be used in SSMuLA for further analysis
-* The aggregated results can be found [here](10.5281/zenodo.13910506)
+* The aggregated results can be found [here](10.5281/zenodo.13910506) with the following columns:
+    * `encoding`: default with `onehot`
+    * `model`: default with `["Boosting Ensemble", "DNN Ensemble"]` where the `"GREEDY"` acquisition function is used 
+    * `n_sample`: total sample size which is equally split into different the rounds
+    * `top_maxes_mean`: maximum fitness achieved, which is the fitness of the final variant achieved by each method on average
+    * `top_maxes_std`: standard deviation of average maximum fitness achieved
+    * `if_truemaxs_mean`: mean of fraction reaching the global optimum, which measures how frequently the true maximum fitness is reached
+    * `n_mut_cutoff`: either `all` or `double` (double-site Hamming distance ensemble)
+    * `lib`: landscape name, default includes `["DHFR", "GB1", "ParD2", "ParD3", "T7", "TEV", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I", "TrpB4"]`
+    * `zs`: ZS predictor, default includes `["ed", "ev", "esm", "esmif", "coves", "Triad"]` and their double-site (Hamming distance) ensemble `["ds-ev", "ds-esm", "ds-esmif", "ds-coves", "ds-Triad"]`
+    * `rounds`: number of rounds, default inludes`[2, 3, 4]`
