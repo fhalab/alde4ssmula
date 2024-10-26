@@ -1,6 +1,6 @@
 export CUDA_VISIBLE_DEVICES=0
 
-
+# two rounds without focused training
 # two rounds without focused training
 # python execute_simulation.py --n_pseudorand_init=60 --batch_size=60 --budget=60 --runs=50 --output_path=results/ed_2eq_60/
 # python execute_simulation.py --n_pseudorand_init=72 --batch_size=72 --budget=72 --runs=50 --output_path=results/ed_2eq_72/
@@ -38,4 +38,3 @@ export CUDA_VISIBLE_DEVICES=0
 # python execute_simulation.py --n_pseudorand_init=168 --batch_size=168 --budget=504 --runs=50 --output_path=results/4eq_168/
 # python execute_simulation.py --n_pseudorand_init=264 --batch_size=264 --budget=792 --runs=50 --output_path=results/4eq_264/
 # python execute_simulation.py --n_pseudorand_init=504 --batch_size=504 --budget=1512 --runs=50 --output_path=results/4eq_504/
-

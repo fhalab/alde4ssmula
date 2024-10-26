@@ -227,4 +227,3 @@ export CUDA_VISIBLE_DEVICES=0
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=168 --batch_size=168 --budget=504 --runs=50 --output_path=results/Triad_4eq_168/
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=264 --batch_size=264 --budget=792 --runs=50 --output_path=results/Triad_4eq_264/
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=504 --batch_size=504 --budget=1512 --runs=50 --output_path=results/Triad_4eq_504/
-

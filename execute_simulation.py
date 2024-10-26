@@ -27,7 +27,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--zs_folder",
         type=str,
-        default="/disk2/fli/SSMuLA/results/zs_comb_5/none/scale2max/double",
+        default="/disk2/fli/SSMuLA/results/zs_comb/all",
     )
     parser.add_argument(
         "--alde_folder", type=str, default="/disk2/fli/alde4ssmula/data"

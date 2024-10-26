@@ -1,5 +1,6 @@
 # ALDE4SSMuLA
-* ALDE simulation runs for [SSMuLA](https://github.com/fhalab/SSMuLA) (Site Saturation Mutagenesis Landscape Analysis), the code base for `Evaluation of Machine Learning-Assisted Directed Evolution Across Diverse Combinatorial Landscapes`
+* ALDE simulation runs for [SSMuLA](https://github.com/fhalab/SSMuLA) (Site Saturation Mutagenesis Landscape Analysis), the code base for our [paper](https://doi.org/10.1101/2024.10.24.619774) titled "Evaluation of Machine Learning-Assisted Directed Evolution Across Diverse Combinatorial Landscapes"
+* Data and results can be found at [Zenodo](https://doi.org/10.5281/zenodo.13910506)
 * Modified from [the original ALDE repo](https://github.com/jsunn-y/ALDE)
 * Follow the instructions for simulation runs with the `alde.yml` environment
 
@@ -65,7 +66,7 @@ results/
 python execute_analysis.py
 ```
 * The output files will be saved in each of the experiemntal subfolder (i.e.) which will then be used in SSMuLA for further analysis
-* The aggregated results can be found [here](10.5281/zenodo.13910506) with the following columns:
+* The aggregated results can be found [here](https://doi.org/10.5281/zenodo.13910506) with the following columns:
     * `encoding`: default with `onehot`
     * `model`: default with `["Boosting Ensemble", "DNN Ensemble"]` where the `"GREEDY"` acquisition function is used 
     * `n_sample`: total sample size which is equally split into different the rounds
