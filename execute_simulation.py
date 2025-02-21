@@ -1,5 +1,6 @@
 from __future__ import annotations
 import argparse
+import json
 import numpy as np
 import pandas as pd
 import torch
@@ -13,14 +14,14 @@ import src.objectives as objectives
 import src.utils as utils
 
 """
-Script to repdouce all of the active learning simulations on GB1 and TrpB datasets. Launches optimization runs as
-separate processes.
+Script to repdouce all of the active learning simulations on SSMuLA datasets.
+Launches optimization runs as separate processes.
 """
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--device", type=str, default="cuda")
-    parser.add_argument("--names", type=list, default=["DHFR", "GB1", "ParD2", "ParD3", "T7", "TEV", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I", "TrpB4"])
+    parser.add_argument("--names", type=str, default='["DHFR", "GB1", "ParD2", "ParD3", "T7", "TEV", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I", "TrpB4"]')
     parser.add_argument("--encodings", type=list, default=["onehot"])
     parser.add_argument("--zs", type=str, default="none")
     parser.add_argument("--ft_frac", type=float, default=0.125)
@@ -35,7 +36,7 @@ if __name__ == "__main__":
     parser.add_argument("--batch_size", type=int, default=96)
     parser.add_argument("--n_pseudorand_init", type=int, default=96)
     parser.add_argument("--budget", type=int, default=384)
-    parser.add_argument("--output_path", type=str, default="results/")
+    parser.add_argument("--output_path", type=str, default="results_rev/")
     parser.add_argument("--runs", type=int, default=50)
     parser.add_argument("--seed_index", type=int, default=0)
     parser.add_argument("--kernel", type=str, default="RBF", choices=["RBF"])
@@ -55,7 +56,13 @@ if __name__ == "__main__":
 
     warnings.filterwarnings("ignore")
 
-    for protein in args.names:
+    try:
+        names_list = json.loads(args.names)  # Correctly parse JSON input
+    except json.JSONDecodeError:
+        names_list = args.names.split()  # Fallback to space-separated parsing
+
+
+    for protein in names_list:
         for encoding in args.encodings:
             device = args.device
             print(device)
@@ -165,7 +172,7 @@ if __name__ == "__main__":
                     "BOOSTING_ENSEMBLE",
                     "DNN_ENSEMBLE",
                 ]:
-                    for acq_fn in ["GREEDY"]:
+                    for acq_fn in ["GREEDY", "UCB", "TS"]:
 
                         dropout = (
                             args.dropout

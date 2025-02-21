@@ -1,30 +1,38 @@
 export CUDA_VISIBLE_DEVICES=0
 
 # two rounds without focused training
-# two rounds without focused training
-# python execute_simulation.py --n_pseudorand_init=60 --batch_size=60 --budget=60 --runs=50 --output_path=results/ed_2eq_60/
-# python execute_simulation.py --n_pseudorand_init=72 --batch_size=72 --budget=72 --runs=50 --output_path=results/ed_2eq_72/
-# python execute_simulation.py --n_pseudorand_init=96 --batch_size=96 --budget=96 --runs=50 --output_path=results/ed_2eq_96/
-# python execute_simulation.py --n_pseudorand_init=144 --batch_size=144 --budget=144 --runs=50 --output_path=results/ed_2eq_144/
-# python execute_simulation.py --n_pseudorand_init=192 --batch_size=192 --budget=192 --runs=50 --output_path=results/ed_2eq_192/
-# python execute_simulation.py --n_pseudorand_init=240 --batch_size=240 --budget=240 --runs=50 --output_path=results/ed_2eq_240/
-# python execute_simulation.py --n_pseudorand_init=288 --batch_size=288 --budget=288 --runs=50 --output_path=results/ed_2eq_288/
-# python execute_simulation.py --n_pseudorand_init=336 --batch_size=336 --budget=336 --runs=50 --output_path=results/ed_2eq_336/
-# python execute_simulation.py --n_pseudorand_init=528 --batch_size=528 --budget=528 --runs=50 --output_path=results/ed_2eq_528/
-# python execute_simulation.py --n_pseudorand_init=1008 --batch_size=1008 --budget=1008 --runs=50 --output_path=results/ed_2eq_1008/
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+python execute_simulation.py --n_pseudorand_init=29 --batch_size=29 --budget=29 --runs=50 --output_path=results/2eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+python execute_simulation.py --n_pseudorand_init=77 --batch_size=77 --budget=77 --runs=50 --output_path=results/2eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+python execute_simulation.py --n_pseudorand_init=39 --batch_size=38 --budget=38 --runs=50 --output_path=results/2eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+python execute_simulation.py --n_pseudorand_init=87 --batch_size=86 --budget=86 --runs=50 --output_path=results/2eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
+
+# python execute_simulation.py --n_pseudorand_init=60 --batch_size=60 --budget=60 --runs=50 --output_path=results/2eq_60/
+# python execute_simulation.py --n_pseudorand_init=72 --batch_size=72 --budget=72 --runs=50 --output_path=results/2eq_72/
+# python execute_simulation.py --n_pseudorand_init=96 --batch_size=96 --budget=96 --runs=50 --output_path=results/2eq_96/
+# python execute_simulation.py --n_pseudorand_init=144 --batch_size=144 --budget=144 --runs=50 --output_path=results/2eq_144/
+# python execute_simulation.py --n_pseudorand_init=192 --batch_size=192 --budget=192 --runs=50 --output_path=results/2eq_192/
+# python execute_simulation.py --n_pseudorand_init=240 --batch_size=240 --budget=240 --runs=50 --output_path=results/2eq_240/
+# python execute_simulation.py --n_pseudorand_init=288 --batch_size=288 --budget=288 --runs=50 --output_path=results/2eq_288/
+# python execute_simulation.py --n_pseudorand_init=336 --batch_size=336 --budget=336 --runs=50 --output_path=results/2eq_336/
+# python execute_simulation.py --n_pseudorand_init=528 --batch_size=528 --budget=528 --runs=50 --output_path=results/eq_528/
+# python execute_simulation.py --n_pseudorand_init=1008 --batch_size=1008 --budget=1008 --runs=50 --output_path=results/2eq_1008/
 
 
 # three rounds without focused training
-# python execute_simulation.py --n_pseudorand_init=40 --batch_size=40 --budget=80 --runs=50 --output_path=results/ed_3eq_40/
-# python execute_simulation.py --n_pseudorand_init=48 --batch_size=48 --budget=96 --runs=50 --output_path=results/ed_3eq_48/
-# python execute_simulation.py --n_pseudorand_init=64 --batch_size=64 --budget=128 --runs=50 --output_path=results/ed_3eq_64/
-# python execute_simulation.py --n_pseudorand_init=96 --batch_size=96 --budget=192 --runs=50 --output_path=results/ed_3eq_96/
-# python execute_simulation.py --n_pseudorand_init=128 --batch_size=128 --budget=256 --runs=50 --output_path=results/ed_3eq_128/
-# python execute_simulation.py --n_pseudorand_init=160 --batch_size=160 --budget=320 --runs=50 --output_path=results/ed_3eq_160/
-# python execute_simulation.py --n_pseudorand_init=192 --batch_size=192 --budget=384 --runs=50 --output_path=results/ed_3eq_192/
-# python execute_simulation.py --n_pseudorand_init=224 --batch_size=224 --budget=448 --runs=50 --output_path=results/ed_3eq_224/
-# python execute_simulation.py --n_pseudorand_init=352 --batch_size=352 --budget=704 --runs=50 --output_path=results/ed_3eq_352/
-# python execute_simulation.py --n_pseudorand_init=672 --batch_size=672 --budget=1344 --runs=50 --output_path=results/ed_3eq_672/
+# python execute_simulation.py --n_pseudorand_init=40 --batch_size=40 --budget=80 --runs=50 --output_path=results/3eq_40/
+# python execute_simulation.py --n_pseudorand_init=48 --batch_size=48 --budget=96 --runs=50 --output_path=results/3eq_48/
+# python execute_simulation.py --n_pseudorand_init=64 --batch_size=64 --budget=128 --runs=50 --output_path=results/3eq_64/
+# python execute_simulation.py --n_pseudorand_init=96 --batch_size=96 --budget=192 --runs=50 --output_path=results/3eq_96/
+# python execute_simulation.py --n_pseudorand_init=128 --batch_size=128 --budget=256 --runs=50 --output_path=results/3eq_128/
+# python execute_simulation.py --n_pseudorand_init=160 --batch_size=160 --budget=320 --runs=50 --output_path=results/3eq_160/
+# python execute_simulation.py --n_pseudorand_init=192 --batch_size=192 --budget=384 --runs=50 --output_path=results/3eq_192/
+# python execute_simulation.py --n_pseudorand_init=224 --batch_size=224 --budget=448 --runs=50 --output_path=results/3eq_224/
+# python execute_simulation.py --n_pseudorand_init=352 --batch_size=352 --budget=704 --runs=50 --output_path=results/3eq_352/
+# python execute_simulation.py --n_pseudorand_init=672 --batch_size=672 --budget=1344 --runs=50 --output_path=results/3eq_672/
 
 
 # four rounds without focused training
