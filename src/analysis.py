@@ -176,13 +176,21 @@ def parse_results(res_dirs: str | list[str]):
     ie results/all_*
     """
 
-    if type(res_dirs) == str:
-        res_dir_list = glob.glob(res_dirs)
+    if isinstance(res_dirs, str):
+        res_dir_list = sorted(glob.glob(res_dirs))
     else:
         res_dir_list = deepcopy(res_dirs)
 
     # Loop over different datasets and encodings
     for res_dir in res_dir_list:
+        # check if res_dir is a directory
+        if not os.path.isdir(res_dir):
+            print(f"{res_dir} is not a directory")
+            continue
+        # check if all_results.csv exists
+        if os.path.exists(res_dir + "/all_results.csv"):
+            print(f"{res_dir} already exists")
+            continue
 
         print(f"Processing {res_dir}...")
         # tabulate all max fitness values into one dataframe
@@ -199,24 +207,8 @@ def parse_results(res_dirs: str | list[str]):
             ]
         )
 
-        for protein in [
-            "DHFR",
-            "GB1",
-            "ParD2",
-            "ParD3",
-            "T7",
-            "TEV",
-            "TrpB3A",
-            "TrpB3B",
-            "TrpB3C",
-            "TrpB3D",
-            "TrpB3E",
-            "TrpB3F",
-            "TrpB3G",
-            "TrpB3H",
-            "TrpB3I",
-            "TrpB4",
-        ]:
+        for protein in sorted(glob.glob(res_dir + "/*")):
+            protein = protein.split("/")[-1]
             for encoding in ["onehot"]:
                 subdir = res_dir + "/" + protein + "/" + encoding
                 fitness_df = pd.read_csv("data/" + protein + "/fitness.csv")

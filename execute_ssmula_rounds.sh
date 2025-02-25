@@ -1,14 +1,35 @@
+#!/bin/bash
+
+# Set CUDA device
 export CUDA_VISIBLE_DEVICES=0
+
+# Ensure the logs directory exists
+mkdir -p logs  # Creates 'logs' folder if it doesn't exist
+
+# Define log file
+LOGFILE="logs/$(date +"%Y%m%d_%H%M%S").log"
+
+# Redirect ALL stdout & stderr to the log file
+exec > "$LOGFILE" 2>&1
+
+# Function to run commands with timestamps
+# log_and_run() {
+#     echo "$(date +"[%Y-%m-%d %H:%M:%S]") Running: $*" | tee -a $LOGFILE
+#     "$@" 2>&1 | tee -a $LOGFILE
+#     echo "$(date +"[%Y-%m-%d %H:%M:%S]") Finished: $*" | tee -a $LOGFILE
+# }
+
+echo "$(date +"[%Y-%m-%d %H:%M:%S]") Script started" | tee -a $LOGFILE
 
 # two rounds without focused training
 # for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
-python execute_simulation.py --n_pseudorand_init=29 --batch_size=29 --budget=29 --runs=50 --output_path=results/2eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
-python execute_simulation.py --n_pseudorand_init=77 --batch_size=77 --budget=77 --runs=50 --output_path=results/2eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# python execute_simulation.py --n_pseudorand_init=29 --batch_size=29 --budget=29 --runs=50 --output_path=results_rev/2eq_3site_ss/ --names '["TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+# python execute_simulation.py --n_pseudorand_init=77 --batch_size=77 --budget=77 --runs=50 --output_path=results_rev/2eq_3site_top96/ --names '["TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
 
 # for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
-python execute_simulation.py --n_pseudorand_init=39 --batch_size=38 --budget=38 --runs=50 --output_path=results/2eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
-python execute_simulation.py --n_pseudorand_init=87 --batch_size=86 --budget=86 --runs=50 --output_path=results/2eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
-
+# python execute_simulation.py --n_pseudorand_init=39 --batch_size=38 --budget=38 --runs=50 --output_path=results_rev/2eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+# python execute_simulation.py --n_pseudorand_init=87 --batch_size=86 --budget=86 --runs=50 --output_path=results_rev/2eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
 
 # python execute_simulation.py --n_pseudorand_init=60 --batch_size=60 --budget=60 --runs=50 --output_path=results/2eq_60/
 # python execute_simulation.py --n_pseudorand_init=72 --batch_size=72 --budget=72 --runs=50 --output_path=results/2eq_72/
@@ -23,6 +44,17 @@ python execute_simulation.py --n_pseudorand_init=87 --batch_size=86 --budget=86 
 
 
 # three rounds without focused training
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+
+# python execute_simulation.py --n_pseudorand_init=20 --batch_size=19 --budget=19 --runs=50 --output_path=results_rev/3eq_3site_ss/ --names '["TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+# python execute_simulation.py --n_pseudorand_init=52 --batch_size=51 --budget=51 --runs=50 --output_path=results_rev/3eq_3site_top96/ --names '["TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+
+# python execute_simulation.py --n_pseudorand_init=27 --batch_size=25 --budget=25 --runs=50 --output_path=results_rev/3eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+# python execute_simulation.py --n_pseudorand_init=59 --batch_size=57 --budget=57 --runs=50 --output_path=results_rev/3eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
 # python execute_simulation.py --n_pseudorand_init=40 --batch_size=40 --budget=80 --runs=50 --output_path=results/3eq_40/
 # python execute_simulation.py --n_pseudorand_init=48 --batch_size=48 --budget=96 --runs=50 --output_path=results/3eq_48/
 # python execute_simulation.py --n_pseudorand_init=64 --batch_size=64 --budget=128 --runs=50 --output_path=results/3eq_64/
@@ -36,6 +68,16 @@ python execute_simulation.py --n_pseudorand_init=87 --batch_size=86 --budget=86 
 
 
 # four rounds without focused training
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+
+# python execute_simulation.py --n_pseudorand_init=16 --batch_size=14 --budget=14 --runs=50 --output_path=results_rev/4eq_3site_ss/ --names '["TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+# python execute_simulation.py --n_pseudorand_init=40 --batch_size=38 --budget=38 --runs=50 --output_path=results_rev/4eq_3site_top96/ --names '["TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+# python execute_simulation.py --n_pseudorand_init=20 --batch_size=19 --budget=19 --runs=50 --output_path=results_rev/4eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+# python execute_simulation.py --n_pseudorand_init=44 --batch_size=43 --budget=43 --runs=50 --output_path=results_rev/4eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
 # python execute_simulation.py --n_pseudorand_init=30 --batch_size=30 --budget=90 --runs=50 --output_path=results/4eq_30/
 # python execute_simulation.py --n_pseudorand_init=36 --batch_size=36 --budget=108 --runs=50 --output_path=results/4eq_36/
 # python execute_simulation.py --n_pseudorand_init=48 --batch_size=48 --budget=144 --runs=50 --output_path=results/4eq_48/
@@ -46,3 +88,5 @@ python execute_simulation.py --n_pseudorand_init=87 --batch_size=86 --budget=86 
 # python execute_simulation.py --n_pseudorand_init=168 --batch_size=168 --budget=504 --runs=50 --output_path=results/4eq_168/
 # python execute_simulation.py --n_pseudorand_init=264 --batch_size=264 --budget=792 --runs=50 --output_path=results/4eq_264/
 # python execute_simulation.py --n_pseudorand_init=504 --batch_size=504 --budget=1512 --runs=50 --output_path=results/4eq_504/
+
+echo "$(date +"[%Y-%m-%d %H:%M:%S]") Script completed" | tee -a $LOGFILE

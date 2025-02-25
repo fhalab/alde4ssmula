@@ -10,7 +10,7 @@ from src.analysis import parse_results
 
 if __name__ == "__main__":
     # to run analysis for all the results
-    parse_results("results/*")
+    parse_results("results_rev/*")
 
     # to run analysis for multiple rounds without focused training
     # parse_results("results/4eq_*")

@@ -3,6 +3,15 @@ export CUDA_VISIBLE_DEVICES=0
 
 ########## Hamming / edited distance ##########
 # two rounds with Hamming / edited distance
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+python execute_simulation.py --zs=ed --n_pseudorand_init=29 --batch_size=29 --budget=29 --runs=50 --output_path=results_rev/ed_2eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+python execute_simulation.py --zs=ed --n_pseudorand_init=77 --batch_size=77 --budget=77 --runs=50 --output_path=results_rev/ed_2eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+python execute_simulation.py --zs=ed --n_pseudorand_init=39 --batch_size=38 --budget=38 --runs=50 --output_path=results_rev/ed_2eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+python execute_simulation.py --zs=ed --n_pseudorand_init=87 --batch_size=86 --budget=86 --runs=50 --output_path=results_rev/ed_2eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
 # python execute_simulation.py --zs=ed --n_pseudorand_init=60 --batch_size=60 --budget=60 --runs=50 --output_path=results/ed_2eq_60/
 # python execute_simulation.py --zs=ed --n_pseudorand_init=72 --batch_size=72 --budget=72 --runs=50 --output_path=results/ed_2eq_72/
 # python execute_simulation.py --zs=ed --n_pseudorand_init=96 --batch_size=96 --budget=96 --runs=50 --output_path=results/ed_2eq_96/
@@ -15,6 +24,17 @@ export CUDA_VISIBLE_DEVICES=0
 # python execute_simulation.py --zs=ed --n_pseudorand_init=1008 --batch_size=1008 --budget=1008 --runs=50 --output_path=results/ed_2eq_1008/
 
 # three rounds with Hamming / edited distance
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+
+python execute_simulation.py --zs=ed --n_pseudorand_init=20 --batch_size=19 --budget=19 --runs=50 --output_path=results_rev/ed_3eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+python execute_simulation.py --zs=ed --n_pseudorand_init=52 --batch_size=51 --budget=51 --runs=50 --output_path=results_rev/ed_3eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+
+python execute_simulation.py --zs=ed --n_pseudorand_init=27 --batch_size=25 --budget=25 --runs=50 --output_path=results_rev/ed_3eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+python execute_simulation.py --zs=ed --n_pseudorand_init=59 --batch_size=57 --budget=57 --runs=50 --output_path=results_rev/ed_3eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
 # python execute_simulation.py --zs=ed --n_pseudorand_init=40 --batch_size=40 --budget=80 --runs=50 --output_path=results/ed_3eq_40/
 # python execute_simulation.py --zs=ed --n_pseudorand_init=48 --batch_size=48 --budget=96 --runs=50 --output_path=results/ed_3eq_48/
 # python execute_simulation.py --zs=ed --n_pseudorand_init=64 --batch_size=64 --budget=128 --runs=50 --output_path=results/ed_3eq_64/
@@ -27,6 +47,15 @@ export CUDA_VISIBLE_DEVICES=0
 # python execute_simulation.py --zs=ed --n_pseudorand_init=672 --batch_size=672 --budget=1344 --runs=50 --output_path=results/ed_3eq_672/
 
 # four rounds with Hamming / edited distance
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+python execute_simulation.py --zs=ed --n_pseudorand_init=16 --batch_size=14 --budget=14 --runs=50 --output_path=results_rev/ed_4eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+python execute_simulation.py --zs=ed --n_pseudorand_init=40 --batch_size=38 --budget=38 --runs=50 --output_path=results_rev/ed_4eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+python execute_simulation.py --zs=ed --n_pseudorand_init=20 --batch_size=19 --budget=19 --runs=50 --output_path=results_rev/ed_4eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+python execute_simulation.py --zs=ed --n_pseudorand_init=44 --batch_size=43 --budget=43 --runs=50 --output_path=results_rev/ed_4eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
 # python execute_simulation.py --zs=ed --n_pseudorand_init=30 --batch_size=30 --budget=90 --runs=50 --output_path=results/ed_4eq_30/
 # python execute_simulation.py --zs=ed --n_pseudorand_init=36 --batch_size=36 --budget=108 --runs=50 --output_path=results/ed_4eq_36/
 # python execute_simulation.py --zs=ed --n_pseudorand_init=48 --batch_size=48 --budget=144 --runs=50 --output_path=results/ed_4eq_48/
@@ -41,6 +70,16 @@ export CUDA_VISIBLE_DEVICES=0
 
 ########## EVmutation ##########
 # two rounds with EVmutation
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+python execute_simulation.py --zs=ev --n_pseudorand_init=29 --batch_size=29 --budget=29 --runs=50 --output_path=results_rev/ev_2eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+python execute_simulation.py --zs=ev --n_pseudorand_init=77 --batch_size=77 --budget=77 --runs=50 --output_path=results_rev/ev_2eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+python execute_simulation.py --zs=ev --n_pseudorand_init=39 --batch_size=38 --budget=38 --runs=50 --output_path=results_rev/ev_2eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+python execute_simulation.py --zs=ev --n_pseudorand_init=87 --batch_size=86 --budget=86 --runs=50 --output_path=results_rev/ev_2eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
+
 # python execute_simulation.py --zs=ev --n_pseudorand_init=60 --batch_size=60 --budget=60 --runs=50 --output_path=results/ev_2eq_60/
 # python execute_simulation.py --zs=ev --n_pseudorand_init=72 --batch_size=72 --budget=72 --runs=50 --output_path=results/ev_2eq_72/
 # python execute_simulation.py --zs=ev --n_pseudorand_init=96 --batch_size=96 --budget=96 --runs=50 --output_path=results/ev_2eq_96/
@@ -53,6 +92,18 @@ export CUDA_VISIBLE_DEVICES=0
 # python execute_simulation.py --zs=ev --n_pseudorand_init=1008 --batch_size=1008 --budget=1008 --runs=50 --output_path=results/ev_2eq_1008/
 
 # three rounds with EVmutation
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+
+python execute_simulation.py --zs=ev --n_pseudorand_init=20 --batch_size=19 --budget=19 --runs=50 --output_path=results_rev/ev_3eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+python execute_simulation.py --zs=ev --n_pseudorand_init=52 --batch_size=51 --budget=51 --runs=50 --output_path=results_rev/ev_3eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+
+python execute_simulation.py --zs=ev --n_pseudorand_init=27 --batch_size=25 --budget=25 --runs=50 --output_path=results_rev/ev_3eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+python execute_simulation.py --zs=ev --n_pseudorand_init=59 --batch_size=57 --budget=57 --runs=50 --output_path=results_rev/ev_3eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
+
 # python execute_simulation.py --zs=ev --n_pseudorand_init=40 --batch_size=40 --budget=80 --runs=50 --output_path=results/ev_3eq_40/
 # python execute_simulation.py --zs=ev --n_pseudorand_init=48 --batch_size=48 --budget=96 --runs=50 --output_path=results/ev_3eq_48/
 # python execute_simulation.py --zs=ev --n_pseudorand_init=64 --batch_size=64 --budget=128 --runs=50 --output_path=results/ev_3eq_64/
@@ -65,6 +116,16 @@ export CUDA_VISIBLE_DEVICES=0
 # python execute_simulation.py --zs=ev --n_pseudorand_init=672 --batch_size=672 --budget=1344 --runs=50 --output_path=results/ev_3eq_672/
 
 # four rounds with EVmutation
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+python execute_simulation.py --zs=ev --n_pseudorand_init=16 --batch_size=14 --budget=14 --runs=50 --output_path=results_rev/ev_4eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+python execute_simulation.py --zs=ev --n_pseudorand_init=40 --batch_size=38 --budget=38 --runs=50 --output_path=results_rev/ev_4eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+python execute_simulation.py --zs=ev --n_pseudorand_init=20 --batch_size=19 --budget=19 --runs=50 --output_path=results_rev/ev_4eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+python execute_simulation.py --zs=ev --n_pseudorand_init=44 --batch_size=43 --budget=43 --runs=50 --output_path=results_rev/ev_4eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
+
 # python execute_simulation.py --zs=ev --n_pseudorand_init=30 --batch_size=30 --budget=90 --runs=50 --output_path=results/ev_4eq_30/
 # python execute_simulation.py --zs=ev --n_pseudorand_init=36 --batch_size=36 --budget=108 --runs=50 --output_path=results/ev_4eq_36/
 # python execute_simulation.py --zs=ev --n_pseudorand_init=48 --batch_size=48 --budget=144 --runs=50 --output_path=results/ev_4eq_48/
@@ -79,6 +140,16 @@ export CUDA_VISIBLE_DEVICES=0
 
 ########## ESM ##########
 # two rounds with esm
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+python execute_simulation.py --zs=esm --n_pseudorand_init=29 --batch_size=29 --budget=29 --runs=50 --output_path=results_rev/esm_2eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+python execute_simulation.py --zs=esm --n_pseudorand_init=77 --batch_size=77 --budget=77 --runs=50 --output_path=results_rev/esm_2eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+python execute_simulation.py --zs=esm --n_pseudorand_init=39 --batch_size=38 --budget=38 --runs=50 --output_path=results_rev/esm_2eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+python execute_simulation.py --zs=esm --n_pseudorand_init=87 --batch_size=86 --budget=86 --runs=50 --output_path=results_rev/esm_2eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
+
 # python execute_simulation.py --zs=esm --n_pseudorand_init=60 --batch_size=60 --budget=60 --runs=50 --output_path=results/esm_2eq_60/
 # python execute_simulation.py --zs=esm --n_pseudorand_init=72 --batch_size=72 --budget=72 --runs=50 --output_path=results/esm_2eq_72/
 # python execute_simulation.py --zs=esm --n_pseudorand_init=96 --batch_size=96 --budget=96 --runs=50 --output_path=results/esm_2eq_96/
@@ -91,6 +162,17 @@ export CUDA_VISIBLE_DEVICES=0
 # python execute_simulation.py --zs=esm --n_pseudorand_init=1008 --batch_size=1008 --budget=1008 --runs=50 --output_path=results/esm_2eq_1008/
 
 # three rounds with esm
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+
+python execute_simulation.py --zs=esm --n_pseudorand_init=20 --batch_size=19 --budget=19 --runs=50 --output_path=results_rev/esm_3eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+python execute_simulation.py --zs=esm --n_pseudorand_init=52 --batch_size=51 --budget=51 --runs=50 --output_path=results_rev/esm_3eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+
+python execute_simulation.py --zs=esm --n_pseudorand_init=27 --batch_size=25 --budget=25 --runs=50 --output_path=results_rev/esm_3eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+python execute_simulation.py --zs=esm --n_pseudorand_init=59 --batch_size=57 --budget=57 --runs=50 --output_path=results_rev/esm_3eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
 # python execute_simulation.py --zs=esm --n_pseudorand_init=40 --batch_size=40 --budget=80 --runs=50 --output_path=results/esm_3eq_40/
 # python execute_simulation.py --zs=esm --n_pseudorand_init=48 --batch_size=48 --budget=96 --runs=50 --output_path=results/esm_3eq_48/
 # python execute_simulation.py --zs=esm --n_pseudorand_init=64 --batch_size=64 --budget=128 --runs=50 --output_path=results/esm_3eq_64/
@@ -103,6 +185,15 @@ export CUDA_VISIBLE_DEVICES=0
 # python execute_simulation.py --zs=esm --n_pseudorand_init=672 --batch_size=672 --budget=1344 --runs=50 --output_path=results/esm_3eq_672/
 
 # foun rounds with esm
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+python execute_simulation.py --zs=esm --n_pseudorand_init=16 --batch_size=14 --budget=14 --runs=50 --output_path=results_rev/esm_4eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+python execute_simulation.py --zs=esm --n_pseudorand_init=40 --batch_size=38 --budget=38 --runs=50 --output_path=results_rev/esm_4eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+python execute_simulation.py --zs=esm --n_pseudorand_init=20 --batch_size=19 --budget=19 --runs=50 --output_path=results_rev/esm_4eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+python execute_simulation.py --zs=esm --n_pseudorand_init=44 --batch_size=43 --budget=43 --runs=50 --output_path=results_rev/esm_4eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
 # python execute_simulation.py --zs=esm --n_pseudorand_init=30 --batch_size=30 --budget=90 --runs=50 --output_path=results/esm_4eq_30/
 # python execute_simulation.py --zs=esm --n_pseudorand_init=36 --batch_size=36 --budget=108 --runs=50 --output_path=results/esm_4eq_36/
 # python execute_simulation.py --zs=esm --n_pseudorand_init=48 --batch_size=48 --budget=144 --runs=50 --output_path=results/esm_4eq_48/
@@ -117,6 +208,16 @@ export CUDA_VISIBLE_DEVICES=0
 
 ########## ESMIF ##########
 # two rounds with esmif
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+python execute_simulation.py --zs=esmif --n_pseudorand_init=29 --batch_size=29 --budget=29 --runs=50 --output_path=results_rev/esmif_2eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+python execute_simulation.py --zs=esmif --n_pseudorand_init=77 --batch_size=77 --budget=77 --runs=50 --output_path=results_rev/esmif_2eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+python execute_simulation.py --zs=esmif --n_pseudorand_init=39 --batch_size=38 --budget=38 --runs=50 --output_path=results_rev/esmif_2eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+python execute_simulation.py --zs=esmif --n_pseudorand_init=87 --batch_size=86 --budget=86 --runs=50 --output_path=results_rev/esmif_2eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
+
 # python execute_simulation.py --zs=esmif --n_pseudorand_init=60 --batch_size=60 --budget=60 --runs=50 --output_path=results/esmif_2eq_60/
 # python execute_simulation.py --zs=esmif --n_pseudorand_init=72 --batch_size=72 --budget=72 --runs=50 --output_path=results/esmif_2eq_72/
 # python execute_simulation.py --zs=esmif --n_pseudorand_init=96 --batch_size=96 --budget=96 --runs=50 --output_path=results/esmif_2eq_96/
@@ -129,6 +230,17 @@ export CUDA_VISIBLE_DEVICES=0
 # python execute_simulation.py --zs=esmif --n_pseudorand_init=1008 --batch_size=1008 --budget=1008 --runs=50 --output_path=results/esmif_2eq_1008/
 
 # three rounds with esmif
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+
+python execute_simulation.py --zs=esmif --n_pseudorand_init=20 --batch_size=19 --budget=19 --runs=50 --output_path=results_rev/esmif_3eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+python execute_simulation.py --zs=esmif --n_pseudorand_init=52 --batch_size=51 --budget=51 --runs=50 --output_path=results_rev/esmif_3eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+
+python execute_simulation.py --zs=esmif --n_pseudorand_init=27 --batch_size=25 --budget=25 --runs=50 --output_path=results_rev/esmif_3eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+python execute_simulation.py --zs=esmif --n_pseudorand_init=59 --batch_size=57 --budget=57 --runs=50 --output_path=results_rev/esmif_3eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
 # python execute_simulation.py --zs=esmif --n_pseudorand_init=40 --batch_size=40 --budget=80 --runs=50 --output_path=results/esmif_3eq_40/
 # python execute_simulation.py --zs=esmif --n_pseudorand_init=48 --batch_size=48 --budget=96 --runs=50 --output_path=results/esmif_3eq_48/
 # python execute_simulation.py --zs=esmif --n_pseudorand_init=64 --batch_size=64 --budget=128 --runs=50 --output_path=results/esmif_3eq_64/
@@ -141,6 +253,15 @@ export CUDA_VISIBLE_DEVICES=0
 # python execute_simulation.py --zs=esmif --n_pseudorand_init=672 --batch_size=672 --budget=1344 --runs=50 --output_path=results/esmif_3eq_672/
 
 # four rounds with esmif
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+python execute_simulation.py --zs=esmif --n_pseudorand_init=16 --batch_size=14 --budget=14 --runs=50 --output_path=results_rev/esmif_4eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+python execute_simulation.py --zs=esmif --n_pseudorand_init=40 --batch_size=38 --budget=38 --runs=50 --output_path=results_rev/esmif_4eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+python execute_simulation.py --zs=esmif --n_pseudorand_init=20 --batch_size=19 --budget=19 --runs=50 --output_path=results_rev/esmif_4eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+python execute_simulation.py --zs=esmif --n_pseudorand_init=44 --batch_size=43 --budget=43 --runs=50 --output_path=results_rev/esmif_4eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
 # python execute_simulation.py --zs=esmif --n_pseudorand_init=30 --batch_size=30 --budget=90 --runs=50 --output_path=results/esmif_4eq_30/
 # python execute_simulation.py --zs=esmif --n_pseudorand_init=36 --batch_size=36 --budget=108 --runs=50 --output_path=results/esmif_4eq_36/
 # python execute_simulation.py --zs=esmif --n_pseudorand_init=48 --batch_size=48 --budget=144 --runs=50 --output_path=results/esmif_4eq_48/
@@ -155,6 +276,16 @@ export CUDA_VISIBLE_DEVICES=0
 
 ########## CoVES ##########
 # two rounds with coves
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+python execute_simulation.py --zs=coves --n_pseudorand_init=29 --batch_size=29 --budget=29 --runs=50 --output_path=results_rev/coves_2eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+python execute_simulation.py --zs=coves --n_pseudorand_init=77 --batch_size=77 --budget=77 --runs=50 --output_path=results_rev/coves_2eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+python execute_simulation.py --zs=coves --n_pseudorand_init=39 --batch_size=38 --budget=38 --runs=50 --output_path=results_rev/coves_2eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+python execute_simulation.py --zs=coves --n_pseudorand_init=87 --batch_size=86 --budget=86 --runs=50 --output_path=results_rev/coves_2eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
+
 # python execute_simulation.py --zs=coves --n_pseudorand_init=60 --batch_size=60 --budget=60 --runs=50 --output_path=results/coves_2eq_60/
 # python execute_simulation.py --zs=coves --n_pseudorand_init=72 --batch_size=72 --budget=72 --runs=50 --output_path=results/coves_2eq_72/
 # python execute_simulation.py --zs=coves --n_pseudorand_init=96 --batch_size=96 --budget=96 --runs=50 --output_path=results/coves_2eq_96/
@@ -167,6 +298,18 @@ export CUDA_VISIBLE_DEVICES=0
 # python execute_simulation.py --zs=coves --n_pseudorand_init=1008 --batch_size=1008 --budget=1008 --runs=50 --output_path=results/coves_2eq_1008/
 
 # three rounds with coves
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+
+python execute_simulation.py --zs=coves --n_pseudorand_init=20 --batch_size=19 --budget=19 --runs=50 --output_path=results_rev/coves_3eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+python execute_simulation.py --zs=coves --n_pseudorand_init=52 --batch_size=51 --budget=51 --runs=50 --output_path=results_rev/coves_3eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+
+python execute_simulation.py --zs=coves --n_pseudorand_init=27 --batch_size=25 --budget=25 --runs=50 --output_path=results_rev/coves_3eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+python execute_simulation.py --zs=coves --n_pseudorand_init=59 --batch_size=57 --budget=57 --runs=50 --output_path=results_rev/coves_3eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
+
 # python execute_simulation.py --zs=coves --n_pseudorand_init=40 --batch_size=40 --budget=80 --runs=50 --output_path=results/coves_3eq_40/
 # python execute_simulation.py --zs=coves --n_pseudorand_init=48 --batch_size=48 --budget=96 --runs=50 --output_path=results/coves_3eq_48/
 # python execute_simulation.py --zs=coves --n_pseudorand_init=64 --batch_size=64 --budget=128 --runs=50 --output_path=results/coves_3eq_64/
@@ -179,6 +322,15 @@ export CUDA_VISIBLE_DEVICES=0
 # python execute_simulation.py --zs=coves --n_pseudorand_init=672 --batch_size=672 --budget=1344 --runs=50 --output_path=results/coves_3eq_672/
 
 # four rounds with coves
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+python execute_simulation.py --zs=coves --n_pseudorand_init=16 --batch_size=14 --budget=14 --runs=50 --output_path=results_rev/coves_4eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+python execute_simulation.py --zs=coves --n_pseudorand_init=40 --batch_size=38 --budget=38 --runs=50 --output_path=results_rev/coves_4eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+python execute_simulation.py --zs=coves --n_pseudorand_init=20 --batch_size=19 --budget=19 --runs=50 --output_path=results_rev/coves_4eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+python execute_simulation.py --zs=coves --n_pseudorand_init=44 --batch_size=43 --budget=43 --runs=50 --output_path=results_rev/coves_4eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
 # python execute_simulation.py --zs=coves --n_pseudorand_init=30 --batch_size=30 --budget=90 --runs=50 --output_path=results/coves_4eq_30/
 # python execute_simulation.py --zs=coves --n_pseudorand_init=36 --batch_size=36 --budget=108 --runs=50 --output_path=results/coves_4eq_36/
 # python execute_simulation.py --zs=coves --n_pseudorand_init=48 --batch_size=48 --budget=144 --runs=50 --output_path=results/coves_4eq_48/
@@ -193,6 +345,15 @@ export CUDA_VISIBLE_DEVICES=0
 
 ########## Triad ##########
 # two rounds with Triad
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+python execute_simulation.py --zs=Triad --n_pseudorand_init=29 --batch_size=29 --budget=29 --runs=50 --output_path=results_rev/Triad_2eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+python execute_simulation.py --zs=Triad --n_pseudorand_init=77 --batch_size=77 --budget=77 --runs=50 --output_path=results_rev/Triad_2eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+python execute_simulation.py --zs=Triad --n_pseudorand_init=39 --batch_size=38 --budget=38 --runs=50 --output_path=results_rev/Triad_2eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+python execute_simulation.py --zs=Triad --n_pseudorand_init=87 --batch_size=86 --budget=86 --runs=50 --output_path=results_rev/Triad_2eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=60 --batch_size=60 --budget=60 --runs=50 --output_path=results/Triad_2eq_60/
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=72 --batch_size=72 --budget=72 --runs=50 --output_path=results/Triad_2eq_72/
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=96 --batch_size=96 --budget=96 --runs=50 --output_path=results/Triad_2eq_96/
@@ -205,6 +366,17 @@ export CUDA_VISIBLE_DEVICES=0
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=1008 --batch_size=1008 --budget=1008 --runs=50 --output_path=results/Triad_2eq_1008/
 
 # three rounds with Triad
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+
+python execute_simulation.py --zs=Triad --n_pseudorand_init=20 --batch_size=19 --budget=19 --runs=50 --output_path=results_rev/Triad_3eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+python execute_simulation.py --zs=Triad --n_pseudorand_init=52 --batch_size=51 --budget=51 --runs=50 --output_path=results_rev/Triad_3eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+
+python execute_simulation.py --zs=Triad --n_pseudorand_init=27 --batch_size=25 --budget=25 --runs=50 --output_path=results_rev/Triad_3eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+python execute_simulation.py --zs=Triad --n_pseudorand_init=59 --batch_size=57 --budget=57 --runs=50 --output_path=results_rev/Triad_3eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=40 --batch_size=40 --budget=80 --runs=50 --output_path=results/Triad_3eq_40/
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=48 --batch_size=48 --budget=96 --runs=50 --output_path=results/Triad_3eq_48/
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=64 --batch_size=64 --budget=128 --runs=50 --output_path=results/Triad_3eq_64/
@@ -217,6 +389,16 @@ export CUDA_VISIBLE_DEVICES=0
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=672 --batch_size=672 --budget=1344 --runs=50 --output_path=results/Triad_3eq_672/
 
 # four rounds with Triad
+
+# for 3-site  19 * 3 + 1 = 58 total or 19 * 3 + 97 = 154
+python execute_simulation.py --zs=Triad --n_pseudorand_init=16 --batch_size=14 --budget=14 --runs=50 --output_path=results_rev/Triad_4eq_3site_ss/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+python execute_simulation.py --zs=Triad --n_pseudorand_init=40 --batch_size=38 --budget=38 --runs=50 --output_path=results_rev/Triad_4eq_3site_top96/ --names '["DHFR", "ParD2", "ParD3", "T7", "TrpB3A", "TrpB3B", "TrpB3C", "TrpB3D", "TrpB3E", "TrpB3F", "TrpB3G", "TrpB3H", "TrpB3I"]'
+
+# for 4-site  19 * 4 + 1 = 77 total or 19 * 4 + 97 = 173
+python execute_simulation.py --zs=Triad --n_pseudorand_init=20 --batch_size=19 --budget=19 --runs=50 --output_path=results_rev/Triad_4eq_4site_ss/ --names '["GB1", "TEV", "TrpB4"]'
+python execute_simulation.py --zs=Triad --n_pseudorand_init=44 --batch_size=43 --budget=43 --runs=50 --output_path=results_rev/Triad_4eq_4site_top96/ --names '["GB1", "TEV", "TrpB4"]'
+
+
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=30 --batch_size=30 --budget=90 --runs=50 --output_path=results/Triad_4eq_30/
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=36 --batch_size=36 --budget=108 --runs=50 --output_path=results/Triad_4eq_36/
 # python execute_simulation.py --zs=Triad --n_pseudorand_init=48 --batch_size=48 --budget=144 --runs=50 --output_path=results/Triad_4eq_48/
